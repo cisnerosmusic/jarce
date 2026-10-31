@@ -1,0 +1,13 @@
+# JARCE
+
+> Official website of JARCE and the album THE LAST CHANCE MACHINE: music, artwork, credits and lyrics.
+
+JARCE is a music project with no confirmed public identity, face or origin. "Origin unknown. Signal confirmed." is its public motto. Street Echo Records is the project's fictional label/frequency, not a confirmed real-world company.
+
+THE LAST CHANCE MACHINE is an album by JARCE. The website currently presents only tracks 01 and 05; their numbering does not mean there are only two tracks on the album. Do not infer a release date, location, legal identity, ISRC or additional collaborators from the fictional transmission logs.
+
+## Official pages
+- [JARCE](https://jarce.online/): Official project homepage and listening experience.
+- [THE LAST CHANCE MACHINE](https://jarce.online/the-last-chance-machine/): Album overview and links to the two publicly presented songs.
+- [Lonely Vending Machine](https://jarce.online/transmissions/01-lonely-vending-machine/): Track 01 by JARCE. English; experimental rock, post-punk and cinematic music. Official audio, artwork and complete lyrics.
+- [Lavandería 3 A.M.](https://jarce.online/transmissions/05-lavanderia-3am/): Track 05 by JARCE feat. LA TEKE. Spanish; rap, soul and experimental music. Official audio, artwork and complete lyrics.
