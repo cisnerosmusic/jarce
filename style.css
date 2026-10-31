@@ -50,3 +50,21 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 .deck-message{font:11px/1.6 monospace;color:#e7c9a0;margin:10px 0 0}.deck-message:empty{display:none}
 .signal-player.is-playing{border-color:#b49b64}
 @media(max-width:400px){.signal-player{padding:14px}.transport{grid-template-columns:50px minmax(0,1fr);gap:10px}.transport button{min-width:48px;min-height:48px}.deck-readout{font-size:9px}.deck-state{font-size:8px}}
+
+/* Each transmission occupies its own chapter below the album introduction. */
+.poster-logs{display:block}
+.transmission,.transmission:nth-child(2){margin-top:0;padding-top:30px;padding-bottom:75px}
+.transmission+.transmission{padding-top:55px}
+.song-heading{margin:30px 0 35px}
+.song-heading .track{font-size:clamp(25px,3.2vw,44px);line-height:1.12;letter-spacing:-1.5px;margin:0 0 16px;max-width:850px}
+.song-heading>p{font:12px/1.8 'Courier New',monospace;color:var(--muted);margin:0}
+.song-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7%;align-items:start}
+.song-art{min-width:0}
+.song-art .signal-player{margin-top:22px}
+.song-text{min-width:0}
+.lyrics>.eyebrow,.song-fragment>.eyebrow:first-child{margin:0 0 30px}
+.stanza{margin:0 0 35px}
+.stanza h4{font:10px 'Courier New',monospace;letter-spacing:1.5px;color:var(--amber);font-weight:400;margin:0 0 13px}
+.stanza p,.song-fragment>p:not(.eyebrow){font:15px/1.9 'Courier New',monospace;color:#c3c8b9;margin:0;overflow-wrap:anywhere}
+.song-fragment>p:not(.eyebrow){margin-bottom:30px}
+@media(max-width:700px){.song-layout{grid-template-columns:1fr;gap:30px}.song-heading{margin:25px 0}.song-heading .track{font-size:29px}.song-heading>p{font-size:11px}.transmission,.transmission:nth-child(2){padding-bottom:40px}.transmission+.transmission{padding-top:40px}.stanza p{font-size:14px}.song-text{padding-top:8px}}

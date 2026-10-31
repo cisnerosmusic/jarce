@@ -5,7 +5,7 @@
 
 Web oficial de JARCE para **jarce.online**. Un archivo nocturno de señales recuperadas, sin biografía ni origen confirmado.
 
-La primera versión presenta únicamente dos transmisiones, cada una con su cartel original completo:
+La primera versión presenta únicamente dos transmisiones, cada una en una sección independiente con su cartel original completo y reproductor:
 
 - `01_lonely_vending_machine` — Lonely Vending Machine.
 - `05_lavanderia_3am` — Lavandería 3 A.M., feat. LA TEKE.
@@ -63,3 +63,5 @@ Los MP3 están en `assets/music/`. Cada cartel incluye un reproductor con play/p
 
 Las imágenes y el contenido artístico pertenecen a sus respectivos titulares. Este repositorio no concede una licencia de reutilización del material.
 
+
+La portada de entrada precede a la presentación del disco y a las dos secciones de canciones en orden vertical. Lonely Vending Machine incluye la letra completa facilitada por el autor; Lavandería 3 A.M. conserva su fragmento público.
