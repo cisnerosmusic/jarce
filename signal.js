@@ -1,15 +1,12 @@
 'use strict';
 const button = document.getElementById('b5');
 const response = document.getElementById('response');
-let reset;
 button?.addEventListener('click', () => {
-  clearTimeout(reset);
-  button.classList.add('active');
-  response.textContent = 'B5 IS STILL ILLUMINATED.';
-  reset = setTimeout(() => {
-    button.classList.remove('active');
-    response.textContent = 'THE SIGNAL REMAINS ACTIVE.';
-  }, 7000);
+  const illuminated = button.classList.toggle('active');
+  button.setAttribute('aria-pressed', String(illuminated));
+  response.textContent = illuminated
+    ? 'B5 IS STILL ILLUMINATED.'
+    : 'THE SIGNAL REMAINS ACTIVE.';
 });
 
 const players = [...document.querySelectorAll('.signal-player')];
