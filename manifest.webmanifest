@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "JARCE — THE LAST CHANCE MACHINE",
+  "short_name": "JARCE",
+  "description": "Origin unknown. Signal confirmed. Music and transmissions from JARCE.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#090e0d",
+  "theme_color": "#090e0d",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

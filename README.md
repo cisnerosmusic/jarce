@@ -75,3 +75,10 @@ El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada pa
 - /llms.txt: índice factual para agentes compatibles; no garantiza indexación ni menciones.
 
 Las páginas de detalle incluyen canonical, metadatos sociales y JSON-LD musical. Reutilizan los recursos y el reproductor del sitio. Mantener sus letras sincronizadas con el home.
+
+## Instalar JARCE
+La web incluye manifest, iconos PNG de 192/512 y apple-touch-icon de 180, apertura standalone y un botón de instalación cuando el navegador ofrece el evento compatible.
+- Android/Chrome: menú → Instalar aplicación o Añadir a pantalla de inicio.
+- iPhone/Safari: Compartir → Añadir a pantalla de inicio; activar Abrir como app web si aparece.
+- La instalación requiere HTTPS y depende del navegador.
+El service worker solo guarda una pantalla de conexión perdida. No guarda canciones ni páginas: la música necesita conexión y las páginas se solicitan a la red para recibir actualizaciones.
