@@ -92,3 +92,22 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 .release-index a{display:block;padding:20px 0;font:700 16px/1.5 'Courier New',monospace}
 .release-index small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:8px}
 @media(max-width:700px){.album-overview{grid-template-columns:1fr;gap:35px}.page-path{font-size:9px}.album-title{font-size:34px;letter-spacing:-1.5px}.song-heading h1.track{font-size:29px;letter-spacing:-1.5px}}
+
+/* A failing fluorescent sign: two brief voltage dips, then a long steady hold. */
+.hero #identity{
+  animation:jarce-fluorescent 8.7s steps(1,end) infinite;
+  transform-origin:48% 55%;
+}
+@keyframes jarce-fluorescent{
+  0%,7%,100%{opacity:1;transform:rotate(-2deg) translate(0,0);text-shadow:1px 0 currentColor,-1px 1px #e0ddd066,0 0 10px #d5e8bd22}
+  1%{opacity:.42;transform:rotate(-2deg) translate(-2px,1px) skewX(-1deg);text-shadow:-2px 0 #86b8ae77,2px 0 #d6b67966}
+  1.5%{opacity:1;transform:rotate(-2deg) translate(2px,-1px);text-shadow:1px 0 currentColor,0 0 14px #d5e8bd44}
+  1.9%{transform:rotate(-2deg) translate(-1px,0)}
+  2.3%{transform:rotate(-2deg) translate(0,0)}
+  6%{opacity:.55;transform:rotate(-2deg) translate(1px,1px) skewX(1deg);text-shadow:2px 0 #86b8ae66,-2px 0 #d6b67955}
+  6.5%{opacity:1;transform:rotate(-2deg) translate(-2px,-1px);text-shadow:1px 0 currentColor,0 0 12px #d5e8bd33}
+  6.8%{transform:rotate(-2deg) translate(1px,0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero #identity{animation:none;opacity:1;transform:rotate(-2deg)}
+}
