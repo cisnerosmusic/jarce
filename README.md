@@ -57,7 +57,7 @@ Documentación: [dominios personalizados en GitHub Pages](https://docs.github.co
 
 Editar los archivos directamente y guardar los cambios en `main`; GitHub Pages publicará la actualización una vez habilitado. Mantener los carteles completos, sin recortar, y los números originales 01 y 05. No añadir transmisiones futuras, letras completas ni documentos internos sin una decisión editorial expresa.
 
-Todavía no se incluyen archivos de audio ni enlaces de escucha. Añadirlos cuando se faciliten los destinos oficiales; evitar botones sin destino o reproducción automática.
+Los MP3 están en `assets/music/`. Cada cartel incluye un reproductor con play/pausa, avance y tiempo. Solo suena una canción a la vez. `preload="none"` evita solicitar el audio hasta la interacción del visitante. Sin JavaScript se conservan los controles nativos del navegador. No hay reproducción automática.
 
 ## Material artístico
 
