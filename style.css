@@ -68,3 +68,10 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 .stanza p,.song-fragment>p:not(.eyebrow){font:15px/1.9 'Courier New',monospace;color:#c3c8b9;margin:0;overflow-wrap:anywhere}
 .song-fragment>p:not(.eyebrow){margin-bottom:30px}
 @media(max-width:700px){.song-layout{grid-template-columns:1fr;gap:30px}.song-heading{margin:25px 0}.song-heading .track{font-size:29px}.song-heading>p{font-size:11px}.transmission,.transmission:nth-child(2){padding-bottom:40px}.transmission+.transmission{padding-top:40px}.stanza p{font-size:14px}.song-text{padding-top:8px}}
+
+/* Feather the artwork perimeter into the page without blurring its lettering. */
+.poster-link{position:relative;isolation:isolate;background:var(--bg)}
+.poster-link::after{content:"";position:absolute;inset:-1px;pointer-events:none;background:linear-gradient(to right,var(--bg) 0%,transparent 7%,transparent 93%,var(--bg) 100%),linear-gradient(to bottom,var(--bg) 0%,transparent 5%,transparent 93%,var(--bg) 100%);border-radius:inherit}
+.poster-link img{background:transparent}
+.poster-link:hover{transform:none}
+@media(max-width:700px){.poster-link::after{background:linear-gradient(to right,var(--bg),transparent 5%,transparent 95%,var(--bg)),linear-gradient(to bottom,var(--bg),transparent 4%,transparent 95%,var(--bg))}}
