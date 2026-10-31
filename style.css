@@ -21,9 +21,9 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 @media(max-width:700px){.scene{background-size:auto 100%;background-position:57% center}.scene:after{background:linear-gradient(90deg,#050b0dc9,#050b0d22),linear-gradient(0deg,#090e0d,transparent 45%)}.hero-copy{top:145px}h1{font-size:110px;letter-spacing:-8px}.track{font-size:13px}.label{font-size:15px}.origin{font-size:14px}h2{letter-spacing:-2px}}
 
 /* Two recovered posters; original artwork remains uncropped. */
-.poster-logs{display:grid;grid-template-columns:1fr 1fr;gap:6%;align-items:start}
+.poster-logs{display:flex;flex-direction:column;gap:0}
 .transmission{min-width:0;border-top:1px solid var(--line);padding-top:18px}
-.transmission:nth-child(2){margin-top:110px}
+.transmission:nth-child(2){margin-top:0}
 .transmission-meta{display:flex;justify-content:space-between;gap:15px;font:9px monospace;letter-spacing:1.5px;color:var(--muted);margin-bottom:18px}
 .transmission-meta span:last-child{color:var(--amber)}
 .poster-link{display:block;transition:transform .3s ease}
@@ -34,7 +34,7 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 .transmission-caption>.eyebrow{font-size:8px;letter-spacing:1px;overflow-wrap:anywhere}
 .transmission-caption p{font:14px/1.9 'Courier New',monospace;color:#adb4a3;margin:20px 0 0}
 .transmission-caption em{color:var(--amber);font-style:normal}
-@media(max-width:700px){.poster-logs{grid-template-columns:1fr;gap:35px}.transmission:nth-child(2){margin-top:0}.transmission-caption h3{font-size:18px}.transmission-meta{font-size:8px}}
+@media(max-width:700px){.poster-logs{gap:0}.transmission:nth-child(2){margin-top:0}.transmission-caption h3{font-size:18px}.transmission-meta{font-size:8px}}
 
 /* Street receiver: stamped metal, amber indicators, tactile transport. */
 .signal-player{margin:0 0 30px;padding:18px;background:repeating-linear-gradient(172deg,transparent 0 30px,#e2d5b006 31px 32px),linear-gradient(130deg,#242a22,#101713);border:1px solid #565c49;box-shadow:inset 0 0 0 3px #0a100d,3px 4px 0 #0006}
@@ -52,7 +52,7 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 @media(max-width:400px){.signal-player{padding:14px}.transport{grid-template-columns:50px minmax(0,1fr);gap:10px}.transport button{min-width:48px;min-height:48px}.deck-readout{font-size:9px}.deck-state{font-size:8px}}
 
 /* Each transmission occupies its own chapter below the album introduction. */
-.poster-logs{display:block}
+.poster-logs{display:flex;flex-direction:column;gap:0}.poster-logs>.transmission{width:100%;flex:none}
 .transmission,.transmission:nth-child(2){margin-top:0;padding-top:30px;padding-bottom:75px}
 .transmission+.transmission{padding-top:55px}
 .song-heading{margin:30px 0 35px}
