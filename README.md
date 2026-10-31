@@ -65,3 +65,5 @@ Las imágenes y el contenido artístico pertenecen a sus respectivos titulares. 
 
 
 La portada de entrada precede a la presentación del disco y a las dos secciones de canciones en orden vertical. Lonely Vending Machine incluye la letra completa facilitada por el autor; Lavandería 3 A.M. incluye también la letra completa facilitada por el autor, con las indicaciones de voz por estrofa.
+
+El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada para JARCE y optimizada en JPEG. La portada original del álbum se conserva en assets.
