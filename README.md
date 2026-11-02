@@ -77,7 +77,7 @@ Los MP3 están en `assets/music/`. Cada cartel incluye un reproductor con play/p
 Las imágenes y el contenido artístico pertenecen a sus respectivos titulares. Este repositorio no concede una licencia de reutilización del material.
 
 
-La portada de entrada precede a la presentación del disco y a las dos secciones de canciones en orden vertical. Lonely Vending Machine incluye la letra completa facilitada por el autor; Lavandería 3 A.M. incluye también la letra completa facilitada por el autor, con las indicaciones de voz por estrofa.
+La portada de entrada precede a la presentación del disco y a las dos secciones de canciones en orden vertical. En el home cada canción muestra solo cartel, reproductor y un enlace a su página. Las letras completas facilitadas por el autor viven únicamente en la página de cada canción (Lavandería 3 A.M. con las indicaciones de voz por estrofa).
 
 El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada para JARCE y optimizada en JPEG. La portada original del álbum se conserva en assets.
 
@@ -87,7 +87,7 @@ El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada pa
 - /transmissions/05-lavanderia-3am/: cartel, audio y letra de la canción 05.
 - /llms.txt: índice factual para agentes compatibles; no garantiza indexación ni menciones.
 
-Las páginas de detalle incluyen canonical, metadatos sociales y JSON-LD musical. Reutilizan los recursos y el reproductor del sitio. Mantener sus letras sincronizadas con el home.
+Las páginas de detalle incluyen canonical, metadatos sociales y JSON-LD musical. Reutilizan los recursos y el reproductor del sitio. Son la única ubicación de las letras.
 
 ## Instalar JARCE
 La web incluye manifest, iconos PNG de 192/512 y apple-touch-icon de 180, apertura standalone y un botón de instalación cuando el navegador ofrece el evento compatible.

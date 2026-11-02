@@ -108,4 +108,5 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 /* B5 is an unlit physical key until the visitor supplies the signal. */
 .residue #b5{background:linear-gradient(145deg,#303128,#171e17);color:#ada88c;border:2px solid #6e7059;box-shadow:inset 0 1px 2px #d8d4ad22,0 3px 0 #020503;transition:background .18s,color .18s,box-shadow .18s,border-color .18s}
 .residue #b5.active{background:radial-gradient(ellipse at 50% 40%,#ffe7a1,#f5b943 65%,#d68326);color:#30200b;border-color:#ffd986;box-shadow:inset 0 0 10px #fff0b8,0 0 16px #f7b33b99,0 0 42px #ef9e3255,0 3px 0 #4a3012}
-@media(prefers-reduced-motion:reduce){.residue #b5{transition:none}}
+@media(prefers-reduced-motion:reduce){.residue #b5{transition:none}}/* Home: poster and player only; full lyrics live on each song page. */
+.song-layout--solo{grid-template-columns:minmax(0,560px);justify-content:center}.song-layout--solo+.record-link{display:table;margin:18px auto 0}
