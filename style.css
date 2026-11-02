@@ -4,7 +4,7 @@
 /* Worn print: typewriter ink, pasted labels and the original sleeve. */
 :root{--text:#e0ddd0;--amber:#dcb578;--bg:#090e0d}
 .ink-filter{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
-.scene{background:#081210 url('assets/jarce-night-signal.jpg') 62% center / cover no-repeat}
+.scene{background:#081210 url('assets/jarce-night-signal.webp') 62% center / cover no-repeat}
 .scene .wall,.scene .conduit,.scene .machine,.scene .floor,.scene .light-spill{display:none}
 .scene:after{background:linear-gradient(90deg,#050b0de8 0%,#050b0d95 38%,#050b0d12 72%),linear-gradient(0deg,#090e0d 0%,transparent 30%,#090e0d33)}
 .hero-copy{top:165px}

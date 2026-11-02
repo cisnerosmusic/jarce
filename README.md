@@ -25,7 +25,14 @@ HTML, CSS y JavaScript puro. Sin frameworks, instalación ni compilación. Sin f
 - `offline.html`: pantalla de conexión perdida.
 - `manifest.webmanifest`, `favicon.ico`, `assets/icons/`: instalación como app e iconos B5.
 - `sitemap.xml`, `llms.txt`: índice para buscadores y agentes.
-- `assets/`: escena del home (`jarce-night-signal.jpg`), portada del álbum (`album-cover.jpg`) y carteles v2.
+- `assets/`: escena del home, portada del álbum y carteles v2. La web usa las versiones WebP (con variante `-640` para móvil vía `srcset`); los JPG se conservan para redes sociales (Open Graph) y para el enlace "ver cartel completo".
+
+## Rendimiento
+
+- La escena del home se precarga con `fetchpriority="high"` porque es el elemento LCP y vive en el CSS.
+- Los carteles del home cargan en diferido; en las páginas de canción y del álbum el cartel es lo primero que se ve, así que carga con prioridad alta.
+- Al añadir una imagen nueva: generar `.webp` y `-640.webp`, poner `width`/`height` y `sizes`.
+- GitHub Pages fija la caché en 10 minutos y no se puede cambiar desde el repositorio.
 - `assets/music/`: los dos MP3.
 - `CNAME`: dominio personalizado `jarce.online`.
 - `.nojekyll`: publicación estática directa.
