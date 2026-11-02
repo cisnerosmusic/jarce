@@ -16,12 +16,32 @@ HTML, CSS y JavaScript puro. Sin frameworks, instalación ni compilación. Sin f
 
 ## Archivos
 
-- `index.html`: contenido y estructura.
+- `index.html`: home con la escena nocturna, el disco y las dos transmisiones.
+- `the-last-chance-machine/`, `transmissions/`: páginas permanentes del álbum y de cada canción.
 - `style.css`: composición, tipografía desgastada y adaptación móvil.
-- `signal.js`: interacción B5.
-- `assets/`: portada del álbum y carteles originales.
+- `signal.js`: botón B5 y reproductor propio (play/pausa, avance, tiempo, una canción a la vez).
+- `pwa.js`: registro del service worker y botón de instalación.
+- `sw.js`: service worker; solo guarda `offline.html`.
+- `offline.html`: pantalla de conexión perdida.
+- `manifest.webmanifest`, `favicon.ico`, `assets/icons/`: instalación como app e iconos B5.
+- `sitemap.xml`, `llms.txt`: índice para buscadores y agentes.
+- `assets/`: escena del home, portada del álbum y carteles v2. La web usa las versiones WebP (con variante `-640` para móvil vía `srcset`); los JPG se conservan para redes sociales (Open Graph) y para el enlace "ver cartel completo".
+
+## Rendimiento
+
+- La escena del home se precarga con `fetchpriority="high"` porque es el elemento LCP y vive en el CSS.
+- Los carteles del home cargan en diferido; en las páginas de canción y del álbum el cartel es lo primero que se ve, así que carga con prioridad alta.
+- Al añadir una imagen nueva: generar `.webp` y `-640.webp`, poner `width`/`height` y `sizes`.
+- GitHub Pages fija la caché en 10 minutos y no se puede cambiar desde el repositorio.
+- `assets/music/`: los dos MP3.
 - `CNAME`: dominio personalizado `jarce.online`.
 - `.nojekyll`: publicación estática directa.
+
+## Versión
+
+Versión actual: **1.1.0**. Se muestra en el pie de todas las páginas y en la pantalla sin conexión.
+
+La misma cadena se usa como `?v=` en `style.css`, `signal.js` y `pwa.js` para forzar la recarga de caché, también en el nombre de caché de `sw.js`. Al publicar cambios hay que subir la versión en todos esos puntos a la vez (buscar `1.1.0` en el repositorio).
 
 ## Vista local
 
@@ -64,7 +84,7 @@ Los MP3 están en `assets/music/`. Cada cartel incluye un reproductor con play/p
 Las imágenes y el contenido artístico pertenecen a sus respectivos titulares. Este repositorio no concede una licencia de reutilización del material.
 
 
-La portada de entrada precede a la presentación del disco y a las dos secciones de canciones en orden vertical. Lonely Vending Machine incluye la letra completa facilitada por el autor; Lavandería 3 A.M. incluye también la letra completa facilitada por el autor, con las indicaciones de voz por estrofa.
+La portada de entrada precede a la presentación del disco y a las dos secciones de canciones en orden vertical. En el home cada canción muestra solo cartel, reproductor y un enlace a su página. Las letras completas facilitadas por el autor viven únicamente en la página de cada canción (Lavandería 3 A.M. con las indicaciones de voz por estrofa).
 
 El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada para JARCE y optimizada en JPEG. La portada original del álbum se conserva en assets.
 
@@ -74,7 +94,7 @@ El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada pa
 - /transmissions/05-lavanderia-3am/: cartel, audio y letra de la canción 05.
 - /llms.txt: índice factual para agentes compatibles; no garantiza indexación ni menciones.
 
-Las páginas de detalle incluyen canonical, metadatos sociales y JSON-LD musical. Reutilizan los recursos y el reproductor del sitio. Mantener sus letras sincronizadas con el home.
+Las páginas de detalle incluyen canonical, metadatos sociales y JSON-LD musical. Reutilizan los recursos y el reproductor del sitio. Son la única ubicación de las letras.
 
 ## Instalar JARCE
 La web incluye manifest, iconos PNG de 192/512 y apple-touch-icon de 180, apertura standalone y un botón de instalación cuando el navegador ofrece el evento compatible.
