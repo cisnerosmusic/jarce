@@ -16,12 +16,25 @@ HTML, CSS y JavaScript puro. Sin frameworks, instalación ni compilación. Sin f
 
 ## Archivos
 
-- `index.html`: contenido y estructura.
+- `index.html`: home con la escena nocturna, el disco y las dos transmisiones.
+- `the-last-chance-machine/`, `transmissions/`: páginas permanentes del álbum y de cada canción.
 - `style.css`: composición, tipografía desgastada y adaptación móvil.
-- `signal.js`: interacción B5.
-- `assets/`: portada del álbum y carteles originales.
+- `signal.js`: botón B5 y reproductor propio (play/pausa, avance, tiempo, una canción a la vez).
+- `pwa.js`: registro del service worker y botón de instalación.
+- `sw.js`: service worker; solo guarda `offline.html`.
+- `offline.html`: pantalla de conexión perdida.
+- `manifest.webmanifest`, `favicon.ico`, `assets/icons/`: instalación como app e iconos B5.
+- `sitemap.xml`, `llms.txt`: índice para buscadores y agentes.
+- `assets/`: escena del home (`jarce-night-signal.jpg`), portada del álbum (`album-cover.jpg`) y carteles v2.
+- `assets/music/`: los dos MP3.
 - `CNAME`: dominio personalizado `jarce.online`.
 - `.nojekyll`: publicación estática directa.
+
+## Versión
+
+Versión actual: **1.1.0**. Se muestra en el pie de todas las páginas y en la pantalla sin conexión.
+
+La misma cadena se usa como `?v=` en `style.css`, `signal.js` y `pwa.js` para forzar la recarga de caché, también en el nombre de caché de `sw.js`. Al publicar cambios hay que subir la versión en todos esos puntos a la vez (buscar `1.1.0` en el repositorio).
 
 ## Vista local
 
