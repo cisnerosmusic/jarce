@@ -121,3 +121,5 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 .poster-link{cursor:zoom-in}
 
 .track-controls{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}.track-controls a,.track-controls button{font:12px/1.5 monospace;color:var(--amber);background:transparent;border:1px solid var(--line);padding:12px;cursor:pointer}.track-controls button:disabled{opacity:.35;cursor:default}
+
+.inline-lyrics{max-width:760px;margin:20px auto;padding:18px;border:1px solid var(--line)}.inline-lyrics summary{cursor:pointer;color:var(--amber);font:14px/1.6 monospace;padding:8px}.inline-lyrics .lyrics{margin-top:24px}.inline-lyrics summary:focus-visible{outline:2px solid var(--amber);outline-offset:4px}.stanza h4{font:10px monospace;letter-spacing:1.5px;color:var(--amber);margin:0 0 13px}

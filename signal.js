@@ -11,6 +11,16 @@ button?.addEventListener('click', () => {
 
 const players = [...document.querySelectorAll('.signal-player')];
 const albumMode = players.length > 1;
+document.querySelectorAll('.inline-lyrics').forEach(details => {
+  details.addEventListener('toggle', () => {
+    if (!details.open) return;
+    const current = details.closest('.transmission').querySelector('audio');
+    players.forEach(player => {
+      const audio = player.querySelector('audio');
+      if (audio !== current) audio.pause();
+    });
+  });
+});
 async function startTrack(player) {
   const audio = player.querySelector('audio');
   audio.currentTime = 0;
