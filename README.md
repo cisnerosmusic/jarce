@@ -43,9 +43,9 @@ HTML, CSS y JavaScript puro. Sin frameworks, instalación ni compilación. Sin f
 
 ## Versión
 
-Versión actual: **1.2.0**. Se muestra en el pie de todas las páginas y en la pantalla sin conexión.
+Versión actual: **1.2.1**. Se muestra en el pie de todas las páginas y en la pantalla sin conexión.
 
-La misma cadena se usa como `?v=` en `style.css`, `signal.js` y `pwa.js` para forzar la recarga de caché, también en el nombre de caché de `sw.js`. Al publicar cambios hay que subir la versión en todos esos puntos a la vez (buscar `1.2.0` en el repositorio).
+La misma cadena se usa como `?v=` en `style.css`, `signal.js` y `pwa.js` para forzar la recarga de caché, también en el nombre de caché de `sw.js`. Al publicar cambios hay que subir la versión en todos esos puntos a la vez (buscar `1.2.1` en el repositorio).
 
 ## Vista local
 

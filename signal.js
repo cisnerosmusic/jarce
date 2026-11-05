@@ -20,6 +20,10 @@ players.forEach(player => {
   panel.className = 'transport';
   panel.innerHTML = '<button type="button" class="deck-play"><span aria-hidden="true">▶</span></button><div><div class="deck-readout"><span class="deck-state">STANDBY</span><span class="deck-clock">0:00 / --:--</span></div><input class="deck-seek" type="range" min="0" max="100" value="0" step="0.1" disabled></div>';
   const toggle = panel.querySelector('button');
+  const playIcon = toggle.querySelector('span');
+  toggle.insertAdjacentHTML('beforeend', '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><rect x="3" y="1" width="4" height="14"/><rect x="9" y="1" width="4" height="14"/></svg>');
+  const pauseIcon = toggle.querySelector('svg');
+  pauseIcon.style.display = 'none';
   const seek = panel.querySelector('input');
   const clock = panel.querySelector('.deck-clock');
   const state = panel.querySelector('.deck-state');
@@ -40,7 +44,8 @@ players.forEach(player => {
   };
   const updateState = () => {
     const playing = !audio.paused && !audio.ended;
-    toggle.querySelector('span').textContent = playing ? 'Ⅱ' : '▶';
+    playIcon.hidden = playing;
+    pauseIcon.style.display = playing ? 'inline-block' : 'none';
     toggle.setAttribute('aria-label', (playing ? 'Pause ' : 'Play ') + title);
     player.classList.toggle('is-playing', playing);
     state.textContent = audio.ended ? 'END OF SIGNAL' : playing ? 'RECEIVING' : 'STANDBY';
