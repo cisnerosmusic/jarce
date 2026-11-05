@@ -4,15 +4,18 @@
 
 JARCE is a music project with no confirmed public identity, face or origin. "Origin unknown. Signal confirmed." is its public motto. Street Echo Records is the project's fictional label/frequency, not a confirmed real-world company.
 
-THE LAST CHANCE MACHINE is an album by JARCE. The website presents all six tracks in album order, 01 through 06. Do not infer a release date, location, legal identity, ISRC or additional collaborators from the fictional transmission logs.
+THE LAST CHANCE MACHINE is an album by JARCE with six tracks, 01 through 06, presented on the website in album order. Songs are in English and Spanish. Do not infer a release date, location, legal identity, ISRC or additional collaborators from the fictional transmission logs.
 
 ## Official pages
-- [JARCE](https://jarce.online/): Official project homepage and listening experience.
-- [THE LAST CHANCE MACHINE](https://jarce.online/the-last-chance-machine/): Album overview and links to all six songs in album order.
-- [Lonely Vending Machine](https://jarce.online/transmissions/01-lonely-vending-machine/): Track 01 by JARCE. English; experimental rock, post-punk and cinematic music. Official audio, artwork and complete lyrics.
-- [Lavandería 3 A.M.](https://jarce.online/transmissions/05-lavanderia-3am/): Track 05 by JARCE feat. LA TEKE. Spanish; rap, soul and experimental music. Official audio, artwork and complete lyrics.
 
-- [Blinking](https://jarce.online/transmissions/02-blinking/): Track 02 by JARCE. Post-punk / Experimental / Rap. Official audio, artwork and complete lyrics.
-- [Last Bus](https://jarce.online/transmissions/03-last-bus/): Track 03 by JARCE. Experimental / Cinematic. Official audio, artwork and complete lyrics.
-- [Sticker](https://jarce.online/transmissions/04-sticker/): Track 04 by JARCE. Urban / Experimental / Rap. Official audio, artwork and complete lyrics.
-- [Broken Turnstile](https://jarce.online/transmissions/06-broken-turnstile/): Track 06 by JARCE. Post-punk / Experimental / Rap. Official audio, artwork and complete lyrics.
+- [JARCE](https://jarce.online/): Official project homepage and listening experience, with all six tracks playable in order.
+- [THE LAST CHANCE MACHINE](https://jarce.online/the-last-chance-machine/): Album overview and links to all six songs in album order.
+
+## Tracks
+
+- [01. Lonely Vending Machine](https://jarce.online/transmissions/01-lonely-vending-machine/): Track 01 by JARCE (4:24). English; experimental rock, post-punk and cinematic music. Official audio, artwork and complete lyrics.
+- [02. Blinking](https://jarce.online/transmissions/02-blinking/): Track 02 by JARCE (2:26). English; post-punk, experimental and rap. Official audio, artwork and complete lyrics.
+- [03. Last Bus](https://jarce.online/transmissions/03-last-bus/): Track 03 by JARCE (3:22). English; experimental and cinematic music. Official audio, artwork and complete lyrics.
+- [04. Sticker](https://jarce.online/transmissions/04-sticker/): Track 04 by JARCE (2:47). Spanish; urban, experimental and rap. Official audio, artwork and complete lyrics.
+- [05. Lavandería 3 A.M.](https://jarce.online/transmissions/05-lavanderia-3am/): Track 05 by JARCE feat. LA TEKE (4:11). Spanish; rap, soul and experimental music. Official audio, artwork and complete lyrics.
+- [06. Broken Turnstile](https://jarce.online/transmissions/06-broken-turnstile/): Track 06 by JARCE (3:25). English; post-punk, experimental and rap. Official audio, artwork and complete lyrics.

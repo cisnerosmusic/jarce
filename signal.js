@@ -61,8 +61,14 @@ players.forEach(player => {
   audio.addEventListener('play', () => {
     players.forEach(other => { if (other !== player) other.querySelector('audio').pause(); });
     updateState();
+    announce(player);
   });
   ['pause', 'ended'].forEach(event => audio.addEventListener(event, updateState));
+  // Album listening: when a track ends on a page with several players, the next one starts.
+  audio.addEventListener('ended', () => {
+    const next = players[players.indexOf(player) + 1];
+    if (next) next.querySelector('.deck-play')?.click();
+  });
   ['loadedmetadata', 'durationchange', 'timeupdate'].forEach(event => audio.addEventListener(event, sync));
   audio.addEventListener('waiting', () => { state.textContent = 'BUFFERING'; });
   audio.addEventListener('playing', updateState);
@@ -76,3 +82,59 @@ players.forEach(player => {
   });
   sync();
 });
+
+// Lock screen, headphones and car controls (Media Session API).
+function announce(player) {
+  if (!('mediaSession' in navigator)) return;
+  const audio = player.querySelector('audio');
+  const art = player.closest('.song-art')?.querySelector('img');
+  const index = players.indexOf(player);
+  try {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: player.dataset.title,
+      artist: player.dataset.artist || 'JARCE',
+      album: 'THE LAST CHANCE MACHINE',
+      artwork: art ? [{ src: art.currentSrc || art.src, sizes: '1024x1536', type: 'image/webp' }] : []
+    });
+    const ms = navigator.mediaSession;
+    const go = step => () => players[index + step]?.querySelector('.deck-play')?.click();
+    ms.setActionHandler('play', () => audio.play());
+    ms.setActionHandler('pause', () => audio.pause());
+    ms.setActionHandler('seekbackward', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
+    ms.setActionHandler('seekforward', () => { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10); });
+    ms.setActionHandler('seekto', d => { if (Number.isFinite(d.seekTime)) audio.currentTime = d.seekTime; });
+    ms.setActionHandler('previoustrack', index > 0 ? go(-1) : null);
+    ms.setActionHandler('nexttrack', index < players.length - 1 ? go(1) : null);
+  } catch { /* Media Session is an enhancement; playback works without it. */ }
+}
+
+// Full poster viewer: stays inside the page, so the installed app never loses its way back.
+const posterLinks = [...document.querySelectorAll('.poster-link')];
+if (posterLinks.length && typeof HTMLDialogElement === 'function') {
+  const viewer = document.createElement('dialog');
+  viewer.className = 'poster-viewer';
+  viewer.setAttribute('aria-label', 'Full poster');
+  viewer.innerHTML = '<button type="button" class="poster-close" aria-label="Close poster">CLOSE ✕</button><img alt="">';
+  document.body.append(viewer);
+  const big = viewer.querySelector('img');
+  const close = () => { if (viewer.open) viewer.close(); };
+  let fromHistory = false;
+  posterLinks.forEach(link => link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+    event.preventDefault();
+    const thumb = link.querySelector('img');
+    big.src = link.href;
+    big.alt = thumb?.alt || '';
+    viewer.showModal();
+    history.pushState({ poster: true }, '');
+  }));
+  viewer.querySelector('.poster-close').addEventListener('click', close);
+  viewer.addEventListener('click', event => { if (event.target === viewer || event.target === big) close(); });
+  // Android back button / browser back closes the viewer instead of leaving the page.
+  window.addEventListener('popstate', () => { if (viewer.open) { fromHistory = true; close(); } });
+  viewer.addEventListener('close', () => {
+    if (!fromHistory && history.state?.poster) history.back();
+    fromHistory = false;
+    big.removeAttribute('src');
+  });
+}

@@ -3,11 +3,13 @@
   "name": "JARCE — THE LAST CHANCE MACHINE",
   "short_name": "JARCE",
   "description": "Origin unknown. Signal confirmed. Music and transmissions from JARCE.",
+  "lang": "en",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#090e0d",
   "theme_color": "#090e0d",
+  "categories": ["music", "entertainment"],
   "icons": [
     {
       "src": "/assets/icons/icon-192.png",
@@ -20,6 +22,34 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshot-narrow.webp",
+      "sizes": "1080x1920",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "JARCE home: Origin unknown. Signal confirmed."
+    },
+    {
+      "src": "/assets/screenshot-wide.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "THE LAST CHANCE MACHINE album with its six transmissions"
     }
   ]
 }
