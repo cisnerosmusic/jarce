@@ -4,10 +4,15 @@
 
 JARCE is a music project with no confirmed public identity, face or origin. "Origin unknown. Signal confirmed." is its public motto. Street Echo Records is the project's fictional label/frequency, not a confirmed real-world company.
 
-THE LAST CHANCE MACHINE is an album by JARCE. The website currently presents only tracks 01 and 05; their numbering does not mean there are only two tracks on the album. Do not infer a release date, location, legal identity, ISRC or additional collaborators from the fictional transmission logs.
+THE LAST CHANCE MACHINE is an album by JARCE. The website presents all six tracks in album order, 01 through 06. Do not infer a release date, location, legal identity, ISRC or additional collaborators from the fictional transmission logs.
 
 ## Official pages
 - [JARCE](https://jarce.online/): Official project homepage and listening experience.
-- [THE LAST CHANCE MACHINE](https://jarce.online/the-last-chance-machine/): Album overview and links to the two publicly presented songs.
+- [THE LAST CHANCE MACHINE](https://jarce.online/the-last-chance-machine/): Album overview and links to all six songs in album order.
 - [Lonely Vending Machine](https://jarce.online/transmissions/01-lonely-vending-machine/): Track 01 by JARCE. English; experimental rock, post-punk and cinematic music. Official audio, artwork and complete lyrics.
 - [Lavandería 3 A.M.](https://jarce.online/transmissions/05-lavanderia-3am/): Track 05 by JARCE feat. LA TEKE. Spanish; rap, soul and experimental music. Official audio, artwork and complete lyrics.
+
+- [Blinking](https://jarce.online/transmissions/02-blinking/): Track 02 by JARCE. Post-punk / Experimental / Rap. Official audio, artwork and complete lyrics.
+- [Last Bus](https://jarce.online/transmissions/03-last-bus/): Track 03 by JARCE. Experimental / Cinematic. Official audio, artwork and complete lyrics.
+- [Sticker](https://jarce.online/transmissions/04-sticker/): Track 04 by JARCE. Urban / Experimental / Rap. Official audio, artwork and complete lyrics.
+- [Broken Turnstile](https://jarce.online/transmissions/06-broken-turnstile/): Track 06 by JARCE. Post-punk / Experimental / Rap. Official audio, artwork and complete lyrics.
