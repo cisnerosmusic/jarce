@@ -10,6 +10,13 @@ button?.addEventListener('click', () => {
 });
 
 const players = [...document.querySelectorAll('.signal-player')];
+const albumMode = players.length > 1;
+async function startTrack(player) {
+  const audio = player.querySelector('audio');
+  audio.currentTime = 0;
+  try { await audio.play(); }
+  catch { player.querySelector('.deck-message').textContent = 'Press play to continue.'; }
+}
 const formatTime = value => Number.isFinite(value) && value >= 0
   ? Math.floor(value / 60) + ':' + String(Math.floor(value % 60)).padStart(2, '0') : '--:--';
 
@@ -34,6 +41,25 @@ players.forEach(player => {
   seek.setAttribute('aria-label', 'Playback position: ' + title);
   player.append(panel, message);
   player.classList.add('enhanced');
+  const navigation = document.createElement('nav');
+  navigation.className = 'track-controls';
+  navigation.setAttribute('aria-label', 'Playback navigation');
+  if (albumMode) {
+    const index = players.indexOf(player);
+    for (const [step, label] of [[-1, '← Previous'], [1, 'Next →']]) {
+      const control = document.createElement('button');
+      control.type = 'button';
+      control.textContent = label;
+      control.disabled = !players[index + step];
+      control.addEventListener('click', () => startTrack(players[index + step]));
+      navigation.append(control);
+    }
+  } else {
+    document.querySelectorAll('nav[aria-label="Track navigation"] a').forEach(link => {
+      navigation.append(link.cloneNode(true));
+    });
+  }
+  player.append(navigation);
   const sync = () => {
     const duration = audio.duration;
     seek.disabled = !Number.isFinite(duration) || duration <= 0;
@@ -62,12 +88,17 @@ players.forEach(player => {
     players.forEach(other => { if (other !== player) other.querySelector('audio').pause(); });
     updateState();
     announce(player);
+    const nextAudio = players[players.indexOf(player) + 1]?.querySelector('audio');
+    if (nextAudio && nextAudio.preload !== 'auto') {
+      nextAudio.preload = 'auto';
+      nextAudio.load();
+    }
   });
   ['pause', 'ended'].forEach(event => audio.addEventListener(event, updateState));
   // Album listening: when a track ends on a page with several players, the next one starts.
   audio.addEventListener('ended', () => {
     const next = players[players.indexOf(player) + 1];
-    if (next) next.querySelector('.deck-play')?.click();
+    if (next) startTrack(next);
   });
   ['loadedmetadata', 'durationchange', 'timeupdate'].forEach(event => audio.addEventListener(event, sync));
   audio.addEventListener('waiting', () => { state.textContent = 'BUFFERING'; });
@@ -97,7 +128,7 @@ function announce(player) {
       artwork: art ? [{ src: art.currentSrc || art.src, sizes: '1024x1536', type: 'image/webp' }] : []
     });
     const ms = navigator.mediaSession;
-    const go = step => () => players[index + step]?.querySelector('.deck-play')?.click();
+    const go = step => () => startTrack(players[index + step]);
     ms.setActionHandler('play', () => audio.play());
     ms.setActionHandler('pause', () => audio.pause());
     ms.setActionHandler('seekbackward', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });

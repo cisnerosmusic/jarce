@@ -119,3 +119,5 @@ h2 em{font-family:inherit;font-style:normal;color:var(--amber)}
 .poster-close:hover,.poster-close:focus-visible{border-color:var(--amber)}
 .poster-close:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
 .poster-link{cursor:zoom-in}
+
+.track-controls{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}.track-controls a,.track-controls button{font:12px/1.5 monospace;color:var(--amber);background:transparent;border:1px solid var(--line);padding:12px;cursor:pointer}.track-controls button:disabled{opacity:.35;cursor:default}
