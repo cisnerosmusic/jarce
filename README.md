@@ -1,69 +1,89 @@
-# JARCE — THE LAST CHANCE MACHINE
+# JARCE / THE LAST CHANCE MACHINE
 
 **Street Echo Records**  
 *Origin unknown. Signal confirmed.*
 
 Web oficial de JARCE para **jarce.online**. Un archivo nocturno de señales recuperadas, sin biografía ni origen confirmado.
 
-La web presenta las seis canciones en orden, cada una con su cartel completo, audio y página de letra:
+La web presenta las seis canciones del disco en orden, cada una con su cartel, audio y página de letra:
 
-- `01_lonely_vending_machine` — Lonely Vending Machine.
-- `02_blinking` — Blinking.
-- `03_last_bus` — Last Bus (afiche corregido).
-- `04_sticker` — Sticker.
-- `05_lavanderia_3am` — Lavandería 3 A.M., feat. LA TEKE.
-- `06_broken_turnstile` — Broken Turnstile.
-
-## Tecnología
-
-HTML, CSS y JavaScript puro. Sin frameworks, instalación ni compilación. Sin fuentes externas, analítica ni cookies. Diseño responsive, navegación por teclado y respeto por la preferencia de movimiento reducido. Los carteles funcionan sin JavaScript; el botón B5 añade una pequeña interacción.
-
-## Archivos
-
-- `index.html`: home con la escena nocturna, el disco y las seis transmisiones.
-- `the-last-chance-machine/`, `transmissions/`: páginas permanentes del álbum y de cada canción.
-- `style.css`: composición, tipografía desgastada y adaptación móvil.
-- `signal.js`: botón B5 y reproductor propio (play/pausa, avance, tiempo, una canción a la vez).
-- `pwa.js`: registro del service worker y botón de instalación.
-- `sw.js`: service worker; solo guarda `offline.html`.
-- `offline.html`: pantalla de conexión perdida.
-- `manifest.webmanifest`, `favicon.ico`, `assets/icons/`: instalación como app e iconos B5.
-- `sitemap.xml`, `llms.txt`: índice para buscadores y agentes.
-- `assets/`: escena del home, portada del álbum y carteles v2. La web usa las versiones WebP (con variante `-640` para móvil vía `srcset`); los JPG se conservan para redes sociales (Open Graph) y para el enlace "ver cartel completo".
-
-## Rendimiento
-
-- La escena del home se precarga con `fetchpriority="high"` porque es el elemento LCP y vive en el CSS.
-- Los carteles del home cargan en diferido; en las páginas de canción y del álbum el cartel es lo primero que se ve, así que carga con prioridad alta.
-- Al añadir una imagen nueva: generar `.webp` y `-640.webp`, poner `width`/`height` y `sizes`.
-- GitHub Pages fija la caché en 10 minutos y no se puede cambiar desde el repositorio.
-- `assets/music/`: los seis MP3.
-- `CNAME`: dominio personalizado `jarce.online`.
-- `.nojekyll`: publicación estática directa.
+| # | Archivo base | Canción |
+| --- | --- | --- |
+| 01 | `01_lonely_vending_machine` | Lonely Vending Machine |
+| 02 | `02_blinking` | Blinking |
+| 03 | `03_last_bus` | Last Bus |
+| 04 | `04_sticker` | Sticker |
+| 05 | `05_lavanderia_3am` | Lavandería 3 A.M. (feat. LA TEKE) |
+| 06 | `06_broken_turnstile` | Broken Turnstile |
 
 ## Versión
 
-Versión actual: **1.2.1**. Se muestra en el pie de todas las páginas y en la pantalla sin conexión.
+Versión actual: **1.3.0**. Se muestra en el pie de todas las páginas, en la 404 y en la pantalla sin conexión.
 
-La misma cadena se usa como `?v=` en `style.css`, `signal.js` y `pwa.js` para forzar la recarga de caché, también en el nombre de caché de `sw.js`. Al publicar cambios hay que subir la versión en todos esos puntos a la vez (buscar `1.2.1` en el repositorio).
+La misma cadena se usa como `?v=` en `style.css`, `signal.js` y `pwa.js` para forzar la recarga de caché. También forma parte del nombre de caché de `sw.js`. Al publicar cambios hay que subir la versión en todos esos puntos a la vez: basta con buscar `1.3.0` en el repositorio.
+
+## Tecnología
+
+HTML, CSS y JavaScript puro. Sin frameworks, instalación ni compilación. Sin fuentes externas, analítica ni cookies. Diseño responsive, navegación por teclado y respeto por la preferencia de movimiento reducido. Todo funciona sin JavaScript; el script añade el reproductor propio, el visor de carteles y el botón B5.
+
+## Archivos
+
+- `index.html`: home con la escena nocturna, el disco y las seis transmisiones (cartel, reproductor y enlace a la letra).
+- `the-last-chance-machine/`: página del álbum.
+- `transmissions/<nn-nombre>/`: página de cada canción con cartel, audio y letra completa. Son la única ubicación de las letras.
+- `404.html`: página de señal perdida, con fondo `assets/404-signal.webp` (versión vertical `-small` para móvil).
+- `offline.html`: pantalla sin conexión que muestra el service worker.
+- `style.css`: composición, tipografía desgastada y adaptación móvil.
+- `signal.js`: botón B5, reproductor (una canción a la vez, paso automático a la siguiente en la home, controles en pantalla bloqueada) y visor de carteles.
+- `pwa.js`: registro del service worker y botón de instalación.
+- `sw.js`: service worker; solo guarda `offline.html`.
+- `manifest.webmanifest`, `favicon.ico`, `assets/icons/`: instalación como app. Incluye iconos adaptables (`maskable`) y capturas `assets/screenshot-*.webp`.
+- `sitemap.xml`, `robots.txt`, `llms.txt`: índices para buscadores y agentes de IA.
+- `assets/`: carteles en WebP (con variante `-640` para móvil) y JPG (para datos estructurados), portada del álbum y escena del home.
+- `assets/og/`: imagen social de 1200×630 propia de cada página.
+- `assets/music/`: los seis MP3, con etiquetas ID3 uniformes.
+- `CNAME`: dominio personalizado `jarce.online`.
+- `.nojekyll`: publicación estática directa.
+
+## SEO y redes
+
+Cada página tiene su propio título, descripción, canonical, imagen social (`assets/og/`), etiquetas Open Graph de tipo musical (`music.song`, `music.album`) y tarjeta de X. Los datos estructurados JSON-LD describen al artista, el álbum y cada grabación con su duración y posición, más la ruta de navegación (breadcrumb).
+
+Para regenerar las imágenes sociales tras cambiar un cartel, basta con componer de nuevo la tarjeta de 1200×630: cartel a la izquierda, título y datos a la derecha, tipografía monoespaciada.
+
+## Rendimiento
+
+- La escena del home se precarga con `fetchpriority="high"` porque es el elemento principal de la primera pantalla y vive en el CSS.
+- Los carteles del home cargan en diferido. En las páginas de canción y del álbum el cartel es lo primero que se ve, así que carga con prioridad alta.
+- Al añadir una imagen nueva: generar `.webp` y `-640.webp`, poner `width`, `height` y `sizes`.
+- `preload="none"` en los audios: nada se descarga hasta pulsar play. No hay reproducción automática al entrar.
+- GitHub Pages fija la caché en 10 minutos y no se puede cambiar desde el repositorio.
+
+## Instalar JARCE
+
+La web se puede instalar como app desde un navegador compatible (requiere HTTPS).
+
+- Android/Chrome: menú, Instalar aplicación o Añadir a pantalla de inicio.
+- iPhone/Safari: Compartir, Añadir a pantalla de inicio.
+
+En la app instalada no hay botón de volver del navegador. Por eso el cartel completo se abre en un visor dentro de la página, con botón de cerrar.
 
 ## Vista local
 
-Abrir `index.html` en un navegador. No requiere dependencias. También puede servirse con cualquier servidor HTTP estático.
+Servir la carpeta con cualquier servidor HTTP estático (por ejemplo `python3 -m http.server`) y abrir `http://localhost:8000`. Las rutas son absolutas, así que abrir `index.html` directamente desde el disco no carga los recursos.
 
 ## Publicar con GitHub Pages
 
-En el repositorio, abrir **Settings → Pages** y seleccionar:
+En el repositorio, **Settings → Pages**:
 
 1. **Source:** Deploy from a branch.
-2. **Branch:** main.
-3. **Folder:** /(root).
-4. **Custom domain:** jarce.online.
-5. Activar **Enforce HTTPS** cuando el certificado esté disponible.
+2. **Branch:** main, carpeta `/(root)`.
+3. **Custom domain:** jarce.online.
+4. **Enforce HTTPS** activado.
 
-Guardar el dominio en GitHub antes de completar la conexión DNS. El archivo CNAME debe conservarse en los cambios futuros.
+El archivo `CNAME` debe conservarse en los cambios futuros.
 
-### DNS en GoDaddy
+### DNS
 
 | Tipo | Nombre | Valor |
 | --- | --- | --- |
@@ -73,40 +93,12 @@ Guardar el dominio en GitHub antes de completar la conexión DNS. El archivo CNA
 | A | @ | 185.199.111.153 |
 | CNAME | www | cisnerosmusic.github.io |
 
-Revisar los registros existentes de @ y www para evitar destinos incompatibles. Conservar los registros de correo y verificación ajenos al alojamiento. La propagación DNS y la emisión del certificado no son inmediatas.
-
 Documentación: [dominios personalizados en GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 ## Mantener el sitio
 
-Editar los archivos directamente y guardar los cambios en `main`; GitHub Pages publicará la actualización una vez habilitado. Mantener los carteles completos, sin recortar, y el orden original 01–06. No añadir transmisiones futuras, letras completas ni documentos internos sin una decisión editorial expresa.
-
-Los MP3 están en `assets/music/`. Cada cartel incluye un reproductor con play/pausa, avance y tiempo. Solo suena una canción a la vez. `preload="none"` evita solicitar el audio hasta la interacción del visitante. Sin JavaScript se conservan los controles nativos del navegador. No hay reproducción automática.
+Mantener los carteles completos, sin recortar, y el orden original 01 a 06. No añadir transmisiones futuras ni documentos internos sin una decisión editorial expresa.
 
 ## Material artístico
 
-Las imágenes y el contenido artístico pertenecen a sus respectivos titulares. Este repositorio no concede una licencia de reutilización del material.
-
-
-La portada de entrada precede a la presentación del disco y a las seis secciones de canciones en orden vertical. En el home cada canción muestra solo cartel, reproductor y un enlace a su página. Las letras completas facilitadas por el autor viven únicamente en la página de cada canción (Lavandería 3 A.M. con las indicaciones de voz por estrofa).
-
-El home utiliza `assets/jarce-night-signal.jpg`, una escena original generada para JARCE y optimizada en JPEG. La portada original del álbum se conserva en assets.
-
-## Páginas permanentes
-- /the-last-chance-machine/: presentación del disco.
-- /transmissions/01-lonely-vending-machine/: cartel, audio y letra de la canción 01.
-- /transmissions/02-blinking/: cartel, audio y letra de la canción 02.
-- /transmissions/03-last-bus/: cartel, audio y letra de la canción 03.
-- /transmissions/04-sticker/: cartel, audio y letra de la canción 04.
-- /transmissions/05-lavanderia-3am/: cartel, audio y letra de la canción 05.
-- /transmissions/06-broken-turnstile/: cartel, audio y letra de la canción 06.
-- /llms.txt: índice factual para agentes compatibles; no garantiza indexación ni menciones.
-
-Las páginas de detalle incluyen canonical, metadatos sociales y JSON-LD musical. Reutilizan los recursos y el reproductor del sitio. Son la única ubicación de las letras.
-
-## Instalar JARCE
-La web incluye manifest, iconos PNG de 192/512 y apple-touch-icon de 180, apertura standalone y un botón de instalación cuando el navegador ofrece el evento compatible.
-- Android/Chrome: menú → Instalar aplicación o Añadir a pantalla de inicio.
-- iPhone/Safari: Compartir → Añadir a pantalla de inicio; activar Abrir como app web si aparece.
-- La instalación requiere HTTPS y depende del navegador.
-El service worker solo guarda una pantalla de conexión perdida. No guarda canciones ni páginas: la música necesita conexión y las páginas se solicitan a la red para recibir actualizaciones.
+Las imágenes, la música, las letras y el resto del contenido artístico pertenecen a sus respectivos titulares. Este repositorio no concede ninguna licencia de reutilización del material.

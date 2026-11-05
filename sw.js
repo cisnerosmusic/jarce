@@ -1,5 +1,5 @@
 'use strict';
-const CACHE = 'jarce-offline-v1.2.1';
+const CACHE = 'jarce-offline-v1.3.0';
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.add('/offline.html')));
 });
