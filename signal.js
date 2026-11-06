@@ -33,6 +33,44 @@ const formatTime = value => Number.isFinite(value) && value >= 0
 players.forEach(player => {
   const audio = player.querySelector('audio');
   const title = player.dataset.title;
+  const poster = player.closest('.song-art')?.querySelector('.poster-link');
+  if (poster && audio.getAttribute('src')?.endsWith('/01_lonely_vending_machine.mp3')) {
+    const motion = document.createElement('video');
+    motion.className = 'motion-poster';
+    motion.muted = true;
+    motion.loop = true;
+    motion.playsInline = true;
+    motion.preload = 'none';
+    motion.setAttribute('aria-hidden', 'true');
+    motion.tabIndex = -1;
+    poster.append(motion);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const stopMotion = () => motion.pause();
+    const playMotion = async () => {
+      if (audio.paused || audio.ended || document.hidden || reducedMotion.matches) return;
+      if (!motion.getAttribute('src')) motion.src = '/assets/video/01-lonely-vending-machine.mp4';
+      try {
+        await motion.play();
+        if (audio.paused || document.hidden || reducedMotion.matches) motion.pause();
+        else poster.classList.add('motion-visible');
+      } catch { poster.classList.remove('motion-visible'); }
+    };
+    audio.addEventListener('playing', playMotion);
+    audio.addEventListener('pause', stopMotion);
+    audio.addEventListener('waiting', stopMotion);
+    audio.addEventListener('ended', () => {
+      stopMotion();
+      poster.classList.remove('motion-visible');
+    });
+    motion.addEventListener('error', () => poster.classList.remove('motion-visible'));
+    document.addEventListener('visibilitychange', () => document.hidden ? stopMotion() : playMotion());
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches) {
+        stopMotion();
+        poster.classList.remove('motion-visible');
+      } else playMotion();
+    });
+  }
   const panel = document.createElement('div');
   panel.className = 'transport';
   panel.innerHTML = '<button type="button" class="deck-play"><span aria-hidden="true">▶</span></button><div><div class="deck-readout"><span class="deck-state">STANDBY</span><span class="deck-clock">0:00 / --:--</span></div><input class="deck-seek" type="range" min="0" max="100" value="0" step="0.1" disabled></div>';
