@@ -45,13 +45,16 @@ players.forEach(player => {
     motion.tabIndex = -1;
     poster.append(motion);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const stopMotion = () => motion.pause();
+    const stopMotion = () => {
+      motion.pause();
+      poster.classList.remove('motion-visible');
+    };
     const playMotion = async () => {
       if (audio.paused || audio.ended || document.hidden || reducedMotion.matches) return;
       if (!motion.getAttribute('src')) motion.src = '/assets/video/01-lonely-vending-machine.mp4';
       try {
         await motion.play();
-        if (audio.paused || document.hidden || reducedMotion.matches) motion.pause();
+        if (audio.paused || document.hidden || reducedMotion.matches) stopMotion();
         else poster.classList.add('motion-visible');
       } catch { poster.classList.remove('motion-visible'); }
     };
